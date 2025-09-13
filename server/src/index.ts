@@ -41,9 +41,9 @@ export const io = new Server<
 });
 
 // security middleware
-// app.use(rateLimiter);
+app.use(rateLimiter);
 app.use(helmet());
-// app.use(cors());
+app.use(cors(corsOptions));
 
 // middleware
 app.use(express.json());

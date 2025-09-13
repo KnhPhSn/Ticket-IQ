@@ -213,12 +213,14 @@ const PageLayout = () => {
                       anchorEl={anchorEl}
                       open={Boolean(anchorEl)}
                       onClose={handleMenuClose}
-                      PaperProps={{
-                        sx: {
-                          background:
-                            'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                          color: 'white',
-                          minWidth: 180,
+                      slotProps={{
+                        paper: {
+                          sx: {
+                            background:
+                              'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                            color: 'white',
+                            minWidth: 180,
+                          },
                         },
                       }}
                     >
