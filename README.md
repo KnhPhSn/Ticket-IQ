@@ -141,3 +141,7 @@ The application will be available at:
 
 I welcome contributions to this project! Feel free to submit pull requests and suggest improvements. 
 If you have any questions or need assistance, don’t hesitate to contact me at adhamelrouby@aucegypt.edu.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
