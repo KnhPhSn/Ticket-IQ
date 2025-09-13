@@ -19,7 +19,7 @@ export const sendAuthToken = async (
     token: refreshToken,
     userId: user._id,
     tokenId,
-    expiresAt: getRefreshTokenExpiryDate(),
+    expiresAt: getRefreshTokenExpiryDate(rememberMe),
   });
 
   res.cookie(
