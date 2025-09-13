@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Container, Typography, TextField } from '@mui/material';
+import { Container, Typography, TextField, Box, Paper } from '@mui/material';
+import { AdminPanelSettings, Search } from '@mui/icons-material';
 import useGetUsers from '../../hooks/useGetUsers';
 import UserCardSkeleton from './UserCardSkeleton';
 import type { UserDb } from '../../types/users';
@@ -13,7 +14,7 @@ const Admin = () => {
   const { users, setUsers, loading, error } = useGetUsers();
   const { socket } = useSocket();
   const userLoaded = !loading && !error;
-  
+
   // Filter users based on search input
   useEffect(() => {
     setDisplayedUsers(
@@ -50,19 +51,88 @@ const Admin = () => {
   }, [socket, setUsers]);
 
   return (
-    <Container maxWidth="md" className="py-8">
-      <Typography variant="h4" component="h1" className="mb-6 font-bold">
-        Admin Panel - Manage Users
-      </Typography>
+    <Container
+      maxWidth="md"
+      sx={{
+        py: { xs: 2, sm: 3, md: 4 },
+        px: { xs: 2, sm: 3 },
+      }}
+    >
+      <Paper
+        elevation={0}
+        sx={{
+          p: { xs: 3, sm: 4 },
+          mb: { xs: 3, sm: 4 },
+          borderRadius: { xs: '16px', sm: '20px' },
+          background: 'linear-gradient(145deg, #ffffff 0%, #f8fafc 100%)',
+          border: '1px solid #e2e8f0',
+        }}
+      >
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: { xs: 1.5, sm: 2 },
+            mb: { xs: 3, sm: 4 },
+          }}
+        >
+          <Box
+            sx={{
+              width: { xs: 40, sm: 48 },
+              height: { xs: 40, sm: 48 },
+              borderRadius: '50%',
+              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <AdminPanelSettings
+              sx={{ color: 'white', fontSize: { xs: 20, sm: 24 } }}
+            />
+          </Box>
+          <Typography
+            variant="h4"
+            component="h1"
+            sx={{
+              fontWeight: 700,
+              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              fontSize: { xs: '1.5rem', sm: '2rem', md: '2.125rem' },
+            }}
+          >
+            Admin Panel
+          </Typography>
+        </Box>
 
-      <TextField
-        fullWidth
-        placeholder="Search by email"
-        variant="outlined"
-        value={searchEmail}
-        onChange={(e) => setSearchEmail(e.target.value)}
-        className="mb-6"
-      />
+        <TextField
+          fullWidth
+          placeholder="Search users by email..."
+          variant="outlined"
+          value={searchEmail}
+          onChange={(e) => setSearchEmail(e.target.value)}
+          InputProps={{
+            startAdornment: <Search sx={{ color: '#94a3b8', mr: 1 }} />,
+          }}
+          sx={{
+            '& .MuiOutlinedInput-root': {
+              borderRadius: '12px',
+              '& fieldset': {
+                borderColor: '#e2e8f0',
+              },
+              '&:hover fieldset': {
+                borderColor: '#667eea',
+              },
+              '&.Mui-focused fieldset': {
+                borderColor: '#667eea',
+                borderWidth: '2px',
+              },
+            },
+          }}
+        />
+      </Paper>
 
       {loading &&
         Array.from({ length: 3 }).map((_, index) => (

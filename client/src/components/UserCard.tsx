@@ -119,9 +119,28 @@ const UserCard: React.FC<UserCardProps> = ({
   );
 
   return (
-    <Card className="mb-4">
-      <CardContent>
-        <div className={editMode ? 'space-y-4' : 'space-y-3'}>
+    <Card
+      sx={{
+        mb: 3,
+        borderRadius: '16px',
+        border: '1px solid #e2e8f0',
+        background: 'linear-gradient(145deg, #ffffff 0%, #f8fafc 100%)',
+        boxShadow: '0 2px 10px 0 rgba(0, 0, 0, 0.05)',
+        transition: 'all 0.2s ease-in-out',
+        '&:hover': {
+          boxShadow: '0 4px 20px 0 rgba(102, 126, 234, 0.1)',
+          borderColor: '#cbd5e1',
+        },
+      }}
+    >
+      <CardContent sx={{ p: 3 }}>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: editMode ? 3 : 2.5,
+          }}
+        >
           {renderUserHeader()}
           {editMode ? (
             <>
@@ -248,7 +267,7 @@ const UserCard: React.FC<UserCardProps> = ({
               </Button>
             </>
           )}
-        </div>
+        </Box>
       </CardContent>
     </Card>
   );
