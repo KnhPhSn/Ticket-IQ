@@ -41,6 +41,7 @@ An intelligent full-stack web application that revolutionizes support ticket man
 
 ### 🔧 Technical Features
 - **RESTful API**: Well-structured backend API with comprehensive endpoints
+- **Background Jobs**: Handles asynchronous tasks such as ticket analysis, email notifications, and scheduled maintenance using Inngest for reliable job processing.
 - **Data Validation**: Input validation and sanitization for security
 - **Error Handling**: Comprehensive error handling with custom error classes
 - **Rate Limiting**: API rate limiting for enhanced security
