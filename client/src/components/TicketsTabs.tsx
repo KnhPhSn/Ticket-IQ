@@ -63,6 +63,7 @@ const TicketTabs: React.FC<TicketTabsProps> = ({
   useEffect(() => {
     if (!socket) return;
     socket.on('ticket-assigned-to-you', () => {
+      console.log('Received ticket-assigned-to-you event');
       fetchAssignedTickets();
     });
 

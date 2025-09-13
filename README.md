@@ -2,6 +2,14 @@
 
 An intelligent full-stack web application that revolutionizes support ticket management with AI-powered analysis and real-time collaboration. Built with React.js frontend and Node.js backend, the system automatically analyzes incoming tickets using Google's Gemini AI to determine priority levels, generate summaries, and provide helpful resources for efficient resolution.
 
+
+<div align="center">
+
+<img src="./assets/demo.gif" alt="App Demo">
+
+</div>
+
+
 ## Tech Stack
 
 - <img src="https://img.shields.io/badge/-HTML5-E34F26?logo=HTML5&logoColor=white&style=flat" alt="html5">
