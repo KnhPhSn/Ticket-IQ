@@ -1,0 +1,595 @@
+openapi: 3.0.0
+info:
+  title: AI Ticket System API
+  description: A ticket management system with user authentication and role-based access control
+  version: 1.0.0
+  contact:
+    name: Adham El-Rouby
+    url: https://github.com/AdhamElRouby
+    email: adhamelrouby@aucegypt.edu
+
+servers:
+  - url: http://localhost:3000/api
+    description: Development server
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  
+  schemas:
+    User:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: User ID
+        name:
+          type: string
+          minLength: 3
+          maxLength: 50
+          description: User's full name
+        email:
+          type: string
+          format: email
+          description: User's email address
+        role:
+          type: string
+          enum: [user, moderator, admin]
+          default: user
+          description: User's role in the system
+        skills:
+          type: array
+          items:
+            type: string
+          description: User's skills
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      required:
+        - name
+        - email
+        - password
+    
+    Ticket:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: Ticket ID
+        title:
+          type: string
+          description: Ticket title
+        description:
+          type: string
+          description: Ticket description
+        status:
+          type: string
+          enum: [TODO, IN_PROGRESS, ASSIGNED, DONE]
+          default: TODO
+          description: Current status of the ticket
+        createdBy:
+          $ref: '#/components/schemas/User'
+        assignedTo:
+          $ref: '#/components/schemas/User'
+        priority:
+          type: string
+          description: Priority level of the ticket
+        deadline:
+          type: string
+          format: date-time
+          description: Deadline for the ticket
+        helpfulNotes:
+          type: string
+          description: Additional notes for the ticket
+        relatedSkills:
+          type: array
+          items:
+            type: string
+          description: Skills related to this ticket
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      required:
+        - title
+        - description
+        - createdBy
+    
+    SignupRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 3
+          maxLength: 50
+          description: User's full name
+        email:
+          type: string
+          format: email
+          description: User's email address
+        password:
+          type: string
+          minLength: 6
+          description: User's password
+        skills:
+          type: array
+          items:
+            type: string
+          description: User's skills (optional)
+      required:
+        - name
+        - email
+        - password
+    
+    LoginRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          description: User's email address
+        password:
+          type: string
+          description: User's password
+        rememberMe:
+          type: boolean
+          default: false
+          description: Whether to remember the user for extended session
+      required:
+        - email
+        - password
+    
+    CreateTicketRequest:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Ticket title
+        description:
+          type: string
+          description: Ticket description
+      required:
+        - title
+        - description
+    
+    UpdateUserRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          description: Email of the user to update
+        role:
+          type: string
+          enum: [user, moderator, admin]
+          description: New role for the user
+        skills:
+          type: array
+          items:
+            type: string
+          description: New skills for the user
+      required:
+        - email
+    
+    AuthResponse:
+      type: object
+      properties:
+        accessToken:
+          type: string
+          description: JWT access token
+        user:
+          type: object
+          properties:
+            name:
+              type: string
+            role:
+              type: string
+            email:
+              type: string
+    
+    TicketResponse:
+      type: object
+      properties:
+        message:
+          type: string
+        ticket:
+          $ref: '#/components/schemas/Ticket'
+    
+    UsersResponse:
+      type: object
+      properties:
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        count:
+          type: integer
+          description: Total number of users
+    
+    OnlineUsersResponse:
+      type: object
+      properties:
+        onlineUsers:
+          type: array
+          items:
+            type: string
+          description: Array of online user IDs
+    
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+        message:
+          type: string
+          description: Detailed error description
+
+paths:
+  # Auth Routes
+  /auth/signup:
+    post:
+      tags:
+        - Authentication
+      summary: Register a new user
+      description: Create a new user account in the system
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignupRequest'
+            example:
+              name: "John Doe"
+              email: "john.doe@example.com"
+              password: "securepassword123"
+              skills: ["JavaScript", "React", "Node.js"]
+      responses:
+        '201':
+          description: User created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+        '400':
+          description: Bad request - validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict - user already exists
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /auth/login:
+    post:
+      tags:
+        - Authentication
+      summary: User login
+      description: Authenticate user and return access token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+            example:
+              email: "john.doe@example.com"
+              password: "securepassword123"
+              rememberMe: true
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+          headers:
+            Set-Cookie:
+              description: JWT refresh token cookie
+              schema:
+                type: string
+        '400':
+          description: Bad request - missing email or password
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - invalid credentials
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /auth/logout:
+    post:
+      tags:
+        - Authentication
+      summary: User logout
+      description: Logout user and invalidate refresh token
+      responses:
+        '204':
+          description: Logout successful
+        '401':
+          description: Unauthorized
+
+  /auth/refresh:
+    get:
+      tags:
+        - Authentication
+      summary: Refresh access token
+      description: Get a new access token using refresh token from cookies
+      responses:
+        '200':
+          description: Token refreshed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+        '401':
+          description: Unauthorized - no refresh token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - invalid or expired token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  # Tickets Routes
+  /tickets:
+    post:
+      tags:
+        - Tickets
+      summary: Create a new ticket
+      description: Create a new support ticket
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTicketRequest'
+            example:
+              title: "Login issue with mobile app"
+              description: "Users are unable to login using the mobile application. The login button appears unresponsive."
+      responses:
+        '201':
+          description: Ticket created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TicketResponse'
+        '400':
+          description: Bad request - missing title or description
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - invalid or missing token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /tickets/created:
+    get:
+      tags:
+        - Tickets
+      summary: Get created tickets
+      description: Get tickets created by the current user (or all tickets if admin)
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: List of created tickets
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Ticket'
+        '401':
+          description: Unauthorized - invalid or missing token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /tickets/assigned:
+    get:
+      tags:
+        - Tickets
+      summary: Get assigned tickets
+      description: Get tickets assigned to the current user
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: List of assigned tickets
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Ticket'
+        '401':
+          description: Unauthorized - invalid or missing token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /tickets/{id}:
+    get:
+      tags:
+        - Tickets
+      summary: Get ticket by ID
+      description: Get a specific ticket by its ID
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: Ticket ID
+          example: "507f1f77bcf86cd799439011"
+      responses:
+        '200':
+          description: Ticket details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ticket:
+                    $ref: '#/components/schemas/Ticket'
+        '401':
+          description: Unauthorized - invalid or missing token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Ticket not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  # Users Routes
+  /users:
+    get:
+      tags:
+        - Users
+      summary: Get all users
+      description: Get list of all users (admin only)
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: List of users
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsersResponse'
+        '401':
+          description: Unauthorized - invalid or missing token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - admin access required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /users/online:
+    get:
+      tags:
+        - Users
+      summary: Get online users
+      description: Get list of currently online users (admin only)
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: List of online users
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OnlineUsersResponse'
+        '401':
+          description: Unauthorized - invalid or missing token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - admin access required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /users/update:
+    patch:
+      tags:
+        - Users
+      summary: Update user
+      description: Update user role and skills (admin only)
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserRequest'
+            example:
+              email: "john.doe@example.com"
+              role: "moderator"
+              skills: ["JavaScript", "React", "Node.js", "MongoDB"]
+      responses:
+        '200':
+          description: User updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user:
+                    $ref: '#/components/schemas/User'
+        '400':
+          description: Bad request - missing email
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - invalid or missing token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - admin access required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+tags:
+  - name: Authentication
+    description: User authentication and authorization endpoints
+  - name: Tickets
+    description: Ticket management endpoints
+  - name: Users
+    description: User management endpoints (admin only)
