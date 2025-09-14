@@ -42,9 +42,8 @@ An intelligent full-stack web application that revolutionizes support ticket man
 - **Status Tracking**: Complete ticket lifecycle management (TODO → IN_PROGRESS → ASSIGNED → DONE)
 - **Advanced Filtering**: Filter tickets by status, priority, and assignment
 
-### ⚡ Real-time Collaboration
+### ⚡ Real-time Notifications
 - **Live Notifications**: Instant updates on ticket progress and assignments
-- **Socket Integration**: Real-time communication between users and moderators
 - **Progress Tracking**: Live toast notifications for ticket analysis and assignment
 
 ### 🔧 Technical Features
