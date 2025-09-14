@@ -1,6 +1,6 @@
 # Ticket IQ: AI Ticket Management System
 
-An intelligent full-stack web application that revolutionizes support ticket management with AI-powered analysis and real-time collaboration. Built with React.js frontend and Node.js backend, the system automatically analyzes incoming tickets using Google's Gemini AI to determine priority levels, generate summaries, and provide helpful resources for efficient resolution.
+A modern full-stack web application designed to streamline support ticket management with AI-powered analysis and real-time collaboration. Built with a React.js frontend and Node.js backend, the system automatically analyzes incoming tickets using Google's Gemini AI to determine priority levels, generate summaries, and provide helpful resources for efficient resolution.
 
 
 <div align="center">
