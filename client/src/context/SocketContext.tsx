@@ -41,7 +41,7 @@ export const SocketProvider = ({ children }: SocketProviderProps) => {
   useEffect(() => {
     // TODO: move the URL to env variable
     // TODO: declare types for the socket events
-    const newSocket = io(import.meta.env.VITE_API_URL, { auth: { token } });
+    const newSocket = io(import.meta.env.VITE_API_URL || 'http://localhost:3000', { auth: { token } });
     newSocket.on('connect_error', (error) => {
       console.log('Connection error:', error.message);
     });
