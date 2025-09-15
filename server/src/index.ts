@@ -35,7 +35,7 @@ export const io = new Server<
   SocketData
 >(server, {
   cors: {
-    origin: 'http://localhost:5173',
+    origin: ['http://localhost:5173', 'https://ticket-iq.vercel.app'],
     methods: ['GET', 'POST'],
   },
 });
