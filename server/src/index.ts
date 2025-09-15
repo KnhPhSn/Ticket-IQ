@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
-import corsOptions from './config/corsOptions';
+import corsOptions, { allowedOrigins } from './config/corsOptions';
 import cookieParser from 'cookie-parser';
 import rateLimiter from './middleware/rateLimiter';
 import notFoundHandler from './middleware/notFound';
@@ -35,8 +35,9 @@ export const io = new Server<
   SocketData
 >(server, {
   cors: {
-    origin: ['http://localhost:5173', 'https://ticket-iq.vercel.app'],
+    origin: allowedOrigins,
     methods: ['GET', 'POST'],
+    credentials: true,
   },
 });
 

@@ -1,9 +1,9 @@
 import { type CorsOptions } from 'cors';
 
-const allowedOrigins = [
+export const allowedOrigins = [
   'http://localhost:5173',
   'http://127.0.0.1:5173',
-  'https://ticket-iq.vercel.app ',
+  'https://ticket-iq.vercel.app',
 ];
 
 const corsOptions: CorsOptions = {
@@ -21,6 +21,9 @@ const corsOptions: CorsOptions = {
     }
   },
   credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+  optionsSuccessStatus: 200,
 };
 
 export default corsOptions;
