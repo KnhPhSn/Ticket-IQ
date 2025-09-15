@@ -2,7 +2,6 @@
 
 A modern full-stack web application designed to streamline support ticket management with AI-powered analysis and real-time collaboration. Built with a React.js frontend and Node.js backend, the system automatically analyzes incoming tickets using Google's Gemini AI to determine priority levels, generate summaries, and provide helpful resources for efficient resolution.
 
-
 <div align="center">
 
 <img src="./assets/demo.gif" alt="App Demo">
@@ -33,7 +32,7 @@ A modern full-stack web application designed to streamline support ticket manage
 ### 👥 User Management & Authentication
 - **Secure Authentication**: JWT-based authentication with refresh token support
 - **Role-Based Access Control**: Admin and user roles with appropriate permissions
-- **User Profiles**: Comprehensive user management with email verification
+- **User Profiles**: Comprehensive user management with **email verification**
 - **Protected Routes**: Client-side route protection based on authentication status
 
 ### 🎫 Advanced Ticket Management
@@ -48,7 +47,7 @@ A modern full-stack web application designed to streamline support ticket manage
 
 ### 🔧 Technical Features
 - **RESTful API**: Well-structured backend API with comprehensive endpoints
-- **Background Jobs**: Handles asynchronous tasks such as ticket analysis, email notifications, and scheduled maintenance using Inngest for reliable job processing.
+- **Background Jobs**: Handles asynchronous tasks such as ticket analysis, **email notifications**, and scheduled maintenance using Inngest for reliable job processing.
 - **Data Validation**: Input validation and sanitization for security
 - **Error Handling**: Comprehensive error handling with custom error classes
 - **Rate Limiting**: API rate limiting for enhanced security
@@ -65,6 +64,12 @@ For users signing in with **email**, only your email address and profile informa
 **Real-time Communication**: WebSocket connections are used for real-time updates and are secured with proper authentication mechanisms.
 
 **Your privacy and data security are paramount.** All sensitive information is encrypted in transit and at rest.
+
+## 🚀 Live Deployment
+
+**🌐 Frontend**: [https://ticket-iq.vercel.app/](https://ticket-iq.vercel.app/)  
+**🔧 Backend API**: [https://ticket-iq.onrender.com](https://ticket-iq.onrender.com)  
+**📚 API Documentation**: [https://ticket-iq.onrender.com/api-docs](https://ticket-iq.onrender.com/api-docs)
 
 ## Run Locally
 
