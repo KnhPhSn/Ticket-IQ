@@ -8,6 +8,11 @@ A modern full-stack web application designed to streamline support ticket manage
 
 </div>
 
+## 🚀 Live Deployment
+
+**🌐 Frontend**: [https://ticket-iq.vercel.app/](https://ticket-iq.vercel.app/)  
+**🔧 Backend API**: [https://ticket-iq.onrender.com](https://ticket-iq.onrender.com)  
+**📚 API Documentation**: [https://ticket-iq.onrender.com/api-docs](https://ticket-iq.onrender.com/api-docs)
 
 ## Tech Stack
 
@@ -64,12 +69,6 @@ For users signing in with **email**, only your email address and profile informa
 **Real-time Communication**: WebSocket connections are used for real-time updates and are secured with proper authentication mechanisms.
 
 **Your privacy and data security are paramount.** All sensitive information is encrypted in transit and at rest.
-
-## 🚀 Live Deployment
-
-**🌐 Frontend**: [https://ticket-iq.vercel.app/](https://ticket-iq.vercel.app/)  
-**🔧 Backend API**: [https://ticket-iq.onrender.com](https://ticket-iq.onrender.com)  
-**📚 API Documentation**: [https://ticket-iq.onrender.com/api-docs](https://ticket-iq.onrender.com/api-docs)
 
 ## Run Locally
 
