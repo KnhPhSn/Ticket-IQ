@@ -10,7 +10,7 @@ A modern full-stack web application designed to streamline support ticket manage
 
 ## 🚀 Live Deployment
 
-**🌐 Frontend**: [https://ticket-iq.vercel.app/](https://ticket-iq.vercel.app/)  
+**🌐 Frontend**: [https://ticket-iq.vercel.app](https://ticket-iq.vercel.app)  
 **🔧 Backend API**: [https://ticket-iq.onrender.com](https://ticket-iq.onrender.com)  
 **📚 API Documentation**: [https://ticket-iq.onrender.com/api-docs](https://ticket-iq.onrender.com/api-docs)
 
